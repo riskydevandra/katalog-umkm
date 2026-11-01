@@ -1,11 +1,19 @@
 import NavAdmin from "@/components/NavAdmin";
 import Input from "@/components/Input";
 import Tombol from "@/components/Tombol";
-import CatatanBelumAktif from "@/components/CatatanBelumAktif";
+import { ubahPasswordAdmin } from "@/app/admin/actions";
 
-// US-05: form ganti password belum berfungsi.
-// Tugas peserta: admin yang sudah login bisa mengganti password-nya, diproses di server.
-export default function HalamanGantiPassword() {
+const pesanError = {
+  short: "Password baru harus minimal 8 karakter.",
+  mismatch: "Konfirmasi password tidak sama.",
+  update: "Password gagal diubah. Pastikan password baru memenuhi kebijakan, lalu coba lagi.",
+  server: "Password gagal diubah karena terjadi masalah server. Silakan coba lagi.",
+};
+
+export default async function HalamanGantiPassword({ searchParams }) {
+  const { error, status } = await searchParams;
+  const pesan = status === "success" ? "Password berhasil diubah." : pesanError[error];
+
   return (
     <div className="flex flex-col gap-6 py-8">
       <NavAdmin />
@@ -15,7 +23,7 @@ export default function HalamanGantiPassword() {
           Ganti password bawaan segera setelah pertama kali masuk. Minimal 8 karakter.
         </p>
       </div>
-      <form className="flex max-w-sm flex-col gap-4">
+      <form action={ubahPasswordAdmin} className="flex max-w-sm flex-col gap-4">
         <Input
           label="Password baru"
           name="password_baru"
@@ -36,7 +44,11 @@ export default function HalamanGantiPassword() {
           Simpan password
         </Tombol>
       </form>
-      <CatatanBelumAktif>Ganti password belum berfungsi: lihat US-05.</CatatanBelumAktif>
+      {pesan ? (
+        <p role={status === "success" ? "status" : "alert"} className={status === "success" ? "text-sm text-utama" : "text-sm text-bahaya"}>
+          {pesan}
+        </p>
+      ) : null}
     </div>
   );
 }
