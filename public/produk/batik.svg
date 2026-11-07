@@ -1,7 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Foto contoh: Batik">
-  <rect width="600" height="600" fill="#e3e8f4"/>
-  <circle cx="300" cy="260" r="150" fill="#2f3e66" opacity="0.18"/>
-  <circle cx="300" cy="260" r="96" fill="#2f3e66" opacity="0.85"/>
-  <text x="300" y="490" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="56" font-weight="700" fill="#2f3e66">Batik</text>
-  <text x="300" y="545" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="26" fill="#2f3e66" opacity="0.7">foto contoh, ganti dengan foto produkmu</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustrasi animasi kain batik</title>
+  <desc id="desc">Kain batik bermotif yang berkibar perlahan.</desc>
+  <style>
+    .fabric { animation: wave 3.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .motif { animation: drift 3.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes wave { 0%, 100% { transform: skewY(-2deg) translateY(0); } 50% { transform: skewY(2deg) translateY(-5px); } }
+    @keyframes drift { 0%, 100% { transform: translateX(-3px); } 50% { transform: translateX(3px); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+  <rect width="600" height="600" rx="36" fill="#e5e9f4"/>
+  <circle cx="300" cy="275" r="205" fill="#f8f9fd"/>
+  <ellipse cx="300" cy="448" rx="165" ry="19" fill="#c4cce0"/>
+  <g class="fabric">
+    <path d="M170 193q60 22 120 0t140 0v217q-70-22-140 0t-120 0z" fill="#344875" stroke="#243457" stroke-width="9"/>
+    <path d="M177 215q56 20 113 0t133 0M177 386q56 20 113 0t133 0" fill="none" stroke="#e2bb69" stroke-width="8"/>
+    <g class="motif" fill="none" stroke="#e2bb69" stroke-width="7">
+      <path d="M217 258l28 28-28 28-28-28zm0 69l28 28-28 28-28-28zm137-69 28 28-28 28-28-28zm0 69 28 28-28 28-28-28z"/>
+      <path d="M286 258l20 20-20 20-20-20zm0 69 20 20-20 20-20-20z"/>
+    </g>
+  </g>
+  <g fill="#a75b3e">
+    <circle cx="143" cy="261" r="9"/>
+    <circle cx="455" cy="344" r="9"/>
+  </g>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#344875">Kain batik</text>
 </svg>

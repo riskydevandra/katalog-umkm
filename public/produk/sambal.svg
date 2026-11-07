@@ -1,7 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Foto contoh: Sambal">
-  <rect width="600" height="600" fill="#fde3df"/>
-  <circle cx="300" cy="260" r="150" fill="#b42318" opacity="0.18"/>
-  <circle cx="300" cy="260" r="96" fill="#b42318" opacity="0.85"/>
-  <text x="300" y="490" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="56" font-weight="700" fill="#b42318">Sambal</text>
-  <text x="300" y="545" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="26" fill="#b42318" opacity="0.7">foto contoh, ganti dengan foto produkmu</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustrasi animasi sambal</title>
+  <desc id="desc">Botol sambal dengan cabai kecil yang bergerak di sekelilingnya.</desc>
+  <style>
+    .chili { animation: sway 2.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .chili.two { animation-delay: -.7s; }
+    .shine { animation: glint 2.2s ease-in-out infinite; }
+    @keyframes sway { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(7deg) translateY(-8px); } }
+    @keyframes glint { 0%, 100% { opacity: .4; } 50% { opacity: .95; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+  <rect width="600" height="600" rx="36" fill="#fde4df"/>
+  <circle cx="300" cy="275" r="205" fill="#fff6f3"/>
+  <ellipse cx="300" cy="453" rx="116" ry="18" fill="#e8b8b0"/>
+  <path d="M255 191h90v46l25 30v153a33 33 0 0 1-33 33h-74a33 33 0 0 1-33-33V267l25-30z" fill="#fffaf7" stroke="#8d352d" stroke-width="10"/>
+  <path d="M238 305h124v115a25 25 0 0 1-25 25h-74a25 25 0 0 1-25-25z" fill="#c93625"/>
+  <path d="M255 191h90v42h-90z" fill="#4d342d"/>
+  <path d="M263 178h74v20h-74z" rx="7" fill="#704a3e"/>
+  <rect x="253" y="328" width="94" height="55" rx="12" fill="#fff1e5"/>
+  <text x="300" y="364" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#a62c20">SAMBAL</text>
+  <path class="shine" d="M253 278v28" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+  <g class="chili">
+    <path d="M155 310c26-38 66-37 89-12-14 38-52 52-83 30-10-7-12-12-6-18z" fill="#dd3827"/>
+    <path d="M225 294q14-18 28-14" fill="none" stroke="#39734a" stroke-linecap="round" stroke-width="9"/>
+  </g>
+  <g class="chili two">
+    <path d="M378 245c25-34 61-30 79-6-15 33-48 43-75 23-9-6-10-11-4-17z" fill="#e24a32"/>
+    <path d="M444 239q14-16 25-11" fill="none" stroke="#39734a" stroke-linecap="round" stroke-width="8"/>
+  </g>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#8d352d">Sambal rumahan</text>
 </svg>

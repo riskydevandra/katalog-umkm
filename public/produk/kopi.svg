@@ -1,7 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Foto contoh: Kopi">
-  <rect width="600" height="600" fill="#e9d8c8"/>
-  <circle cx="300" cy="260" r="150" fill="#5b3a29" opacity="0.18"/>
-  <circle cx="300" cy="260" r="96" fill="#5b3a29" opacity="0.85"/>
-  <text x="300" y="490" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="56" font-weight="700" fill="#5b3a29">Kopi</text>
-  <text x="300" y="545" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="26" fill="#5b3a29" opacity="0.7">foto contoh, ganti dengan foto produkmu</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustrasi animasi kopi</title>
+  <desc id="desc">Secangkir kopi hangat dengan uap yang bergerak perlahan.</desc>
+  <style>
+    .steam { animation: rise 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .steam.second { animation-delay: .8s; }
+    .bean { animation: bob 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes rise { 0%, 100% { opacity: .25; transform: translateY(8px) scale(.92); } 50% { opacity: .85; transform: translateY(-8px) scale(1.05); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+  <rect width="600" height="600" rx="36" fill="#f3e5d7"/>
+  <circle cx="300" cy="275" r="205" fill="#fffaf4"/>
+  <ellipse cx="300" cy="444" rx="142" ry="20" fill="#d7bd9f"/>
+  <path d="M206 302h184v94a76 76 0 0 1-76 76h-32a76 76 0 0 1-76-76z" fill="#fbf8f2" stroke="#79533b" stroke-width="12"/>
+  <path d="M390 326h25a44 44 0 0 1 0 88h-34" fill="none" stroke="#79533b" stroke-width="12"/>
+  <ellipse cx="298" cy="303" rx="92" ry="24" fill="#593824"/>
+  <path d="M256 302c18-23 64-23 82 0-18 22-64 22-82 0z" fill="none" stroke="#d7a773" stroke-width="7"/>
+  <path class="steam" d="M258 254c-28-28 25-37 0-67" fill="none" stroke="#b48b69" stroke-linecap="round" stroke-width="9"/>
+  <path class="steam second" d="M321 248c-24-26 20-34 0-61" fill="none" stroke="#b48b69" stroke-linecap="round" stroke-width="9"/>
+  <g class="bean" fill="#70462d">
+    <ellipse cx="156" cy="383" rx="22" ry="14" transform="rotate(-32 156 383)"/>
+    <path d="M142 395c12-13 25-24 34-28" fill="none" stroke="#d7a773" stroke-width="4"/>
+  </g>
+  <g class="bean" fill="#70462d">
+    <ellipse cx="443" cy="273" rx="19" ry="12" transform="rotate(24 443 273)"/>
+    <path d="M428 268c12 8 22 15 31 25" fill="none" stroke="#d7a773" stroke-width="4"/>
+  </g>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#593824">Kopi hangat</text>
 </svg>

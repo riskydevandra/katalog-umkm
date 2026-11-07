@@ -33,6 +33,7 @@ Kunci rahasia melewati semua aturan RLS, jadi hanya dipakai untuk membaca data p
 ```
 app/
   page.jsx                  katalog (US-01)
+  manifest.js               manifest aplikasi web (US-13)
   produk/[id]/page.jsx      detail produk (US-02)
   admin/
     login/page.jsx          login (US-04)
@@ -56,12 +57,17 @@ app/admin/actions.js     Server Action untuk login, ganti password, dan kelola p
 proxy.js                 proteksi halaman /admin (US-06)
 ```
 
+Deskripsi produk dapat dibuat menggunakan Gemini dari Server Action saat admin login (US-14).
+Simpan kunci API sebagai `GEMINI_API_KEY` di environment server lokal dan Vercel; jangan
+gunakan awalan `NEXT_PUBLIC_` atau mengirim kunci ke browser.
+
 ## Pesan WhatsApp (US-03)
 
 Format link: `https://wa.me/<nomor>?text=<pesan>`
 
 - `<nomor>` diambil dari `lib/toko.js`, format internasional tanpa tanda + (contoh `6281234567890`).
 - `<pesan>` berisi nama dan harga produk, di-encode dengan `encodeURIComponent`.
+- Di halaman detail, pengunjung memilih jumlah minimal 1; pesan mencantumkan jumlah, harga satuan, dan total harga (US-12).
 
 ## Akun admin
 

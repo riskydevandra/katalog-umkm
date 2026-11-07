@@ -3,6 +3,7 @@ import NavAdmin from "@/components/NavAdmin";
 import FormProduk from "@/components/FormProduk";
 import CatatanBelumAktif from "@/components/CatatanBelumAktif";
 import { cariProdukContoh } from "@/lib/data-contoh";
+import { buatDeskripsiProdukAdmin } from "@/app/admin/actions";
 
 // US-09 (bonus di jalur offline): ubah produk.
 export default async function HalamanUbahProduk({ params }) {
@@ -18,7 +19,11 @@ export default async function HalamanUbahProduk({ params }) {
       <NavAdmin />
       <h1 className="text-2xl font-extrabold">Ubah produk</h1>
       <CatatanBelumAktif>Simpan perubahan belum berfungsi: lihat US-09.</CatatanBelumAktif>
-      <FormProduk produk={produk} labelTombol="Simpan perubahan" />
+      <FormProduk
+        produk={produk}
+        generateDescription={buatDeskripsiProdukAdmin}
+        labelTombol="Simpan perubahan"
+      />
     </div>
   );
 }

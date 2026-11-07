@@ -1,7 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Foto contoh: Nastar">
-  <rect width="600" height="600" fill="#fff4dc"/>
-  <circle cx="300" cy="260" r="150" fill="#c27c0e" opacity="0.18"/>
-  <circle cx="300" cy="260" r="96" fill="#c27c0e" opacity="0.85"/>
-  <text x="300" y="490" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="56" font-weight="700" fill="#c27c0e">Nastar</text>
-  <text x="300" y="545" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="26" fill="#c27c0e" opacity="0.7">foto contoh, ganti dengan foto produkmu</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustrasi animasi nastar</title>
+  <desc id="desc">Nastar keemasan di atas piring, dengan kilau lembut.</desc>
+  <style>
+    .cookie { animation: lift 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .cookie.two { animation-delay: -.8s; }
+    .shine { animation: sparkle 2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes lift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes sparkle { 0%, 100% { opacity: .35; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.1); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+  <rect width="600" height="600" rx="36" fill="#fff0d4"/>
+  <circle cx="300" cy="275" r="205" fill="#fffaee"/>
+  <ellipse cx="300" cy="423" rx="165" ry="38" fill="#e6c690"/>
+  <ellipse cx="300" cy="408" rx="157" ry="37" fill="#fffdf8" stroke="#d9c6a4" stroke-width="8"/>
+  <g class="cookie">
+    <circle cx="235" cy="330" r="57" fill="#d99735"/>
+    <circle cx="235" cy="325" r="48" fill="#f2c56f"/>
+    <circle cx="235" cy="325" r="17" fill="#c44c27"/>
+    <path d="M202 305q33-25 65 0m-64 41q31 23 63 0" fill="none" stroke="#f8dda0" stroke-linecap="round" stroke-width="7"/>
+  </g>
+  <g class="cookie two">
+    <circle cx="357" cy="335" r="57" fill="#d99735"/>
+    <circle cx="357" cy="330" r="48" fill="#f2c56f"/>
+    <circle cx="357" cy="330" r="17" fill="#c44c27"/>
+    <path d="M324 310q33-25 65 0m-64 41q31 23 63 0" fill="none" stroke="#f8dda0" stroke-linecap="round" stroke-width="7"/>
+  </g>
+  <g class="shine" fill="#d99a32">
+    <path d="M166 222l7 17 17 7-17 7-7 17-7-17-17-7 17-7z"/>
+    <path d="M423 215l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/>
+  </g>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#875819">Nastar lembut</text>
 </svg>

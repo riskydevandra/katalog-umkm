@@ -1,10 +1,14 @@
 import KartuProduk from "@/components/KartuProduk";
+import Tombol from "@/components/Tombol";
 import { connection } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { toko } from "@/lib/toko";
 
-export default async function HalamanKatalog() {
+export default async function HalamanKatalog({ searchParams }) {
   await connection();
+  const params = await searchParams;
+  const kataKunci = typeof params.q === "string" ? params.q.trim() : "";
+  const kategoriDipilih = typeof params.kategori === "string" ? params.kategori : "";
 
   let daftarProduk = [];
   let gagalMemuatProduk = false;
@@ -21,6 +25,15 @@ export default async function HalamanKatalog() {
   } catch {
     gagalMemuatProduk = true;
   }
+
+  const daftarKategori = [...new Set(daftarProduk.map((produk) => produk.kategori).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, "id"));
+  const hasilProduk = daftarProduk.filter((produk) => {
+    const cocokNama = produk.nama.toLocaleLowerCase("id-ID").includes(kataKunci.toLocaleLowerCase("id-ID"));
+    const cocokKategori = !kategoriDipilih || produk.kategori === kategoriDipilih;
+
+    return cocokNama && cocokKategori;
+  });
 
   return (
     <>
@@ -43,11 +56,49 @@ export default async function HalamanKatalog() {
         ) : daftarProduk.length === 0 ? (
           <p className="text-teks-lembut">Belum ada produk</p>
         ) : (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {daftarProduk.map((produk) => (
-              <KartuProduk key={produk.id} produk={produk} />
-            ))}
-          </div>
+          <>
+            <form method="get" action="/" className="flex flex-col gap-3 sm:flex-row sm:items-end">
+              <label className="flex flex-1 flex-col gap-1.5 text-sm font-semibold">
+                Cari nama produk
+                <input
+                  type="search"
+                  name="q"
+                  value={kataKunci}
+                  placeholder="Contoh: kopi"
+                  className="w-full rounded-lg border border-garis bg-latar px-3 py-2.5 text-base text-teks placeholder:text-teks-lembut focus:border-utama focus:outline-none"
+                />
+              </label>
+              <label className="flex flex-1 flex-col gap-1.5 text-sm font-semibold">
+                Kategori
+                <select
+                  name="kategori"
+                  value={kategoriDipilih}
+                  className="w-full rounded-lg border border-garis bg-latar px-3 py-2.5 text-base text-teks focus:border-utama focus:outline-none"
+                >
+                  <option value="">Semua kategori</option>
+                  {daftarKategori.map((kategori) => (
+                    <option key={kategori} value={kategori}>
+                      {kategori}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <Tombol type="submit" className="self-start sm:self-auto">
+                Cari produk
+              </Tombol>
+            </form>
+            {hasilProduk.length === 0 ? (
+              <p className="text-teks-lembut">
+                Tidak ada produk yang sesuai. Ubah kata pencarian atau pilih kategori lain.
+              </p>
+            ) : (
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+                {hasilProduk.map((produk) => (
+                  <KartuProduk key={produk.id} produk={produk} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </section>
     </>

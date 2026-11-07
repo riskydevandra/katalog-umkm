@@ -1,7 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Foto contoh: Keripik">
-  <rect width="600" height="600" fill="#fbefd8"/>
-  <circle cx="300" cy="260" r="150" fill="#b8860b" opacity="0.18"/>
-  <circle cx="300" cy="260" r="96" fill="#b8860b" opacity="0.85"/>
-  <text x="300" y="490" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="56" font-weight="700" fill="#b8860b">Keripik</text>
-  <text x="300" y="545" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="26" fill="#b8860b" opacity="0.7">foto contoh, ganti dengan foto produkmu</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustrasi animasi keripik</title>
+  <desc id="desc">Keripik renyah dalam mangkuk dengan taburan bumbu yang berkilau.</desc>
+  <style>
+    .chip { animation: float 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .chip.two { animation-delay: -.9s; }
+    .spark { animation: twinkle 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(4deg); } }
+    @keyframes twinkle { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+  <rect width="600" height="600" rx="36" fill="#fff0ca"/>
+  <circle cx="300" cy="275" r="205" fill="#fff9e9"/>
+  <ellipse cx="300" cy="429" rx="157" ry="20" fill="#e9ce8f"/>
+  <path d="M157 329h286l-40 105a54 54 0 0 1-51 35h-104a54 54 0 0 1-51-35z" fill="#d99d39" stroke="#a36c1c" stroke-width="10"/>
+  <ellipse cx="300" cy="330" rx="143" ry="39" fill="#f3c664" stroke="#a36c1c" stroke-width="9"/>
+  <path class="chip" d="M208 316l38-95 61 24-25 91z" fill="#f6d984" stroke="#c28a28" stroke-width="7"/>
+  <path class="chip two" d="M278 306l18-109 68 13 3 98z" fill="#f9df92" stroke="#c28a28" stroke-width="7"/>
+  <path class="chip" d="M354 318l30-87 55 31-31 70z" fill="#f2ca65" stroke="#c28a28" stroke-width="7"/>
+  <path d="M225 278l28-10m-18 27 26-10m54-40 23 5m-18 19 24 4m68 3 18 10" stroke="#fff4c9" stroke-linecap="round" stroke-width="7"/>
+  <g class="spark" fill="#d88718">
+    <path d="M171 229l7 17 17 7-17 7-7 17-7-17-17-7 17-7z"/>
+    <path d="M429 190l6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/>
+  </g>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#875819">Keripik renyah</text>
 </svg>
